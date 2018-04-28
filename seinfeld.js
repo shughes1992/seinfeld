@@ -29,7 +29,7 @@ connection.connect(function(err) {
 
 
 
-app.get("/", function(req, res) {
+app.get("/cast", function(req, res) {
 
 connection.query("SELECT * FROM actors", function(err, result) {
 
@@ -50,6 +50,49 @@ connection.query("SELECT * FROM actors", function(err, result) {
 
     });
 });
+
+
+app.get("/coolness-chart", function(req, res) {
+
+    connection.query("SELECT * FROM actors", function(err, result) {
+    
+        var html = "<h1>Seinfeld Coolness Chart</h1>";
+    
+        html += "<ul>";
+    
+        for (var i = 0; i < result.length; i++) {
+            html += "<li><p> ID: " + result[i].id + "</p>";
+            html += "<p>Actor: " + result[i].name + " </p></li>";
+            html += "<p>Coolness Points: " + result[i].coolness_points + " </p></li>";
+          }
+    
+          html += "</ul>";
+    
+          res.send(html);
+    
+        });
+    });
+
+    app.get("/attitude-chart/:att", function(req, res) {
+
+        connection.query("SELECT * FROM actors", function(err, result) {
+        
+            var html = "<h1>Seinfeld Coolness Chart</h1>";
+        
+            html += "<ul>";
+        
+            for (var i = 0; i < result.length; i++) {
+                html += "<li><p> ID: " + result[i].id + "</p>";
+                html += "<p>Actor: " + result[i].name + " </p></li>";
+                html += "<p>Attitude: " + result[i].attittude + " </p></li>"
+              }
+        
+              html += "</ul>";
+        
+              res.send(html);
+        
+            });
+        });
 
 app.listen(PORT, function() {
     // Log (server-side) when our server has started

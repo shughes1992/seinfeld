@@ -9,9 +9,9 @@ CREATE TABLE actors (
   PRIMARY KEY(id)
 );
 
-INSERT INTO actors (name, coolness_points, attitude) VALUES ("Kramer", 99, 87);
-INSERT INTO actors (name, coolness_points, attitude) VALUES ("Elaine", 77, 6);
-INSERT INTO actors (name, coolness_points, attitude) VALUES ("Frank", 8, 53);
-INSERT INTO actors (name, coolness_points, attitude) VALUES ("Jerry", 4, 12);
+INSERT INTO actors (name, coolness_points, attitude) VALUES ("Kramer", 99, "mean");
+INSERT INTO actors (name, coolness_points, attitude) VALUES ("Elaine", 77, "amazing");
+INSERT INTO actors (name, coolness_points, attitude) VALUES ("Frank", 8, "happy");
+INSERT INTO actors (name, coolness_points, attitude) VALUES ("Jerry", 4, "excited");
 
 select * from actors;
